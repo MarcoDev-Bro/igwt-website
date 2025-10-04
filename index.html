@@ -1,24 +1,213 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>IGWT – In God We Trust</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IGWT – In God We Trust | Solana Meme Token</title>
+  <meta name="description" content="IGWT (In God We Trust) – a community-driven meme token on Solana. Fair launch, locked liquidity, deflationary burns, DAO treasury." />
+  <meta property="og:title" content="IGWT – In God We Trust" />
+  <meta property="og:description" content="A bright, meme-friendly Solana token with halo & wings. Community first, fair launch, burns, DAO." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://github.com/MarcoDev-Bro/igwt-website/blob/main/IGWT.png" />
+  <meta name="theme-color" content="#ffae00" />
+  <link rel="icon" href="https://PLACEHOLDER.your-cdn.com/igwt-favicon.png" />
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #fafafa; }
-    h1 { color: #ff9900; }
-    img { max-width: 200px; margin: 20px; }
+    :root{
+      --bg:#0b0b10;--card:#11131a;--muted:#c7cad1;--accent:#ffae00;--accent-2:#ffe39a;--good:#10b981;--danger:#ef4444;--ring:rgba(255,174,0,.35)
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#090a0f 0%, #0e1018 100%);color:#e8eaf0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:56px;height:56px;border-radius:14px;box-shadow:0 0 0 4px var(--ring)}
+    .brand h1{font-size:20px;margin:0;line-height:1}
+    .tag{font-size:12px;color:var(--muted)}
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:#111;padding:10px 14px;border-radius:12px;font-weight:700;border:0;cursor:pointer}
+    .btn.secondary{background:#1a1f2e;color:#e8eaf0;border:1px solid #2a3146}
+    .btn.ghost{background:transparent;border:1px solid #2a3146;color:#e8eaf0}
+
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:center;padding:28px 0}
+    .hero h2{font-size:40px;margin:0 0 12px}
+    .hero p{color:var(--muted);font-size:16px;margin:0 0 18px}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:#1a1f2e;border:1px solid #2a3146;color:#cfd2da;padding:6px 10px;border-radius:999px;font-size:12px;margin-bottom:14px}
+    .hero-card{background:linear-gradient(180deg,#121524,#0f1320);border:1px solid #252a3f;border-radius:20px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .token-logo{width:100%;aspect-ratio:1/1;background:#0b0d16;border:1px solid #252a3f;border-radius:20px;display:grid;place-items:center}
+    .token-logo img{max-width:82%;height:auto;filter:drop-shadow(0 16px 30px rgba(255,174,0,.25))}
+
+    h3{margin:28px 0 10px}
+    section.card{background:var(--card);border:1px solid #1f2436;border-radius:18px;padding:18px;margin:16px 0;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+    .grid{display:grid;gap:16px}
+    @media (min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+
+    table{width:100%;border-collapse:separate;border-spacing:0 8px}
+    th,td{text-align:left;padding:12px 14px}
+    thead th{color:#cfd2da;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+    tbody tr{background:#131726;border:1px solid #242a41}
+    tbody td:first-child{border-radius:12px 0 0 12px}
+    tbody td:last-child{border-radius:0 12px 12px 0}
+
+    .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .kpi .item{background:#121525;border:1px solid #242a41;border-radius:14px;padding:14px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .muted{color:var(--muted)}
+    footer{opacity:.7;font-size:12px;padding:26px 0}
+    .pill{display:inline-block;padding:2px 8px;border-radius:999px;border:1px solid #2a3146;background:#121524;font-size:12px}
+    .copy{display:inline-flex;gap:8px;align-items:center}
   </style>
+  <script>
+    function copyMint() {
+      const el = document.getElementById('mint');
+      navigator.clipboard.writeText(el.textContent.trim());
+      const btn = document.getElementById('copyBtn');
+      const prev = btn.textContent; btn.textContent = 'Copied! ✅';
+      setTimeout(()=>btn.textContent=prev, 1400);
+    }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "IGWT – In God We Trust",
+    "url": "https://YOUR-USERNAME.github.io/igwt-website/",
+    "logo": "https://PLACEHOLDER.your-cdn.com/igwt-logo.png",
+    "sameAs": [
+      "https://twitter.com/igwtcoin",
+      "https://discord.gg/igwt"
+    ]
+  }
+  </script>
 </head>
 <body>
-  <img src="https://github.com/MarcoDev-Bro/igwt-website/blob/main/IGWT.png" alt="IGWT Logo"/>
-  <h1>IGWT – In God We Trust</h1>
-  <p>A community-driven meme token on Solana.</p>
-  <p><b>Symbol:</b> IGWT</p>
-  <p><b>Total Supply:</b> 100,000,000,000,000</p>
-  <p><b>Join us:</b></p>
-  <p>
-    <a href="https://twitter.com/igwtcoin">Twitter</a> | 
-    <a href="https://discord.gg/igwtcoin">Discord</a>
-  </p>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img src="https://PLACEHOLDER.your-cdn.com/igwt-logo.png" alt="IGWT Logo"/>
+        <div>
+          <h1>IGWT</h1>
+          <div class="tag">In God We Trust • Solana Meme Token</div>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn" href="#buy">Get IGWT</a>
+        <a class="btn secondary" href="whitepaper/IGWT_Whitepaper.pdf" target="_blank" rel="noopener">Whitepaper</a>
+        <a class="btn ghost" href="https://twitter.com/igwtcoin" target="_blank" rel="noopener">Twitter</a>
+        <a class="btn ghost" href="https://discord.gg/igwt" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="badge">Fair Launch • Locked LP • Deflationary Burns</div>
+        <h2>In Memes We Trust, In Community We Believe.</h2>
+        <p>
+          IGWT is a bright, meme-friendly token on <b>Solana</b> with halo & wings. 
+          Community-first tokenomics inspired by BONK, transparent allocations, and a playful brand that spreads hope & trust.
+        </p>
+        <div class="kpi">
+          <div class="item">
+            <div class="muted">Symbol</div>
+            <div><b>IGWT</b></div>
+          </div>
+          <div class="item">
+            <div class="muted">Total Supply</div>
+            <div class="mono">100,000,000,000,000</div>
+          </div>
+          <div class="item">
+            <div class="muted">Decimals</div>
+            <div class="mono">5</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="token-logo">
+          <img src="https://PLACEHOLDER.your-cdn.com/igwt-logo.png" alt="IGWT Token"/>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="token">
+      <h3>Token Details</h3>
+      <p class="muted">Replace the mint address after deployment.</p>
+      <p class="mono copy">Mint: <span id="mint">So1anaMintAddressGoesHereXXXXXXXXXXXXXX</span> 
+        <button id="copyBtn" class="btn secondary" style="margin-left:10px" onclick="copyMint()">Copy</button>
+      </p>
+      <div class="grid cols-2">
+        <div>
+          <h4>Allocation</h4>
+          <table>
+            <thead><tr><th>Category</th><th>Percent</th><th>Tokens</th></tr></thead>
+            <tbody>
+              <tr><td>Community Airdrop</td><td>50%</td><td>50,000,000,000,000</td></tr>
+              <tr><td>Team & Contributors</td><td>20%</td><td>20,000,000,000,000</td></tr>
+              <tr><td>DAO / Treasury</td><td>15%</td><td>15,000,000,000,000</td></tr>
+              <tr><td>Marketing & Partnerships</td><td>5%</td><td>5,000,000,000,000</td></tr>
+              <tr><td>Initial Liquidity</td><td>5%</td><td>5,000,000,000,000</td></tr>
+              <tr><td>Reserve</td><td>5%</td><td>5,000,000,000,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4>Key Features</h4>
+          <ul>
+            <li>Fair launch • No presale • Transparent wallets</li>
+            <li>Mint & freeze authorities revoked</li>
+            <li>12‑month LP lock (publicly verifiable)</li>
+            <li>Deflationary burns on partner DEX routes</li>
+            <li>DAO governance in Phase 2</li>
+          </ul>
+          <div style="margin-top:10px">
+            <span class="pill">#Meme</span>
+            <span class="pill">#Community</span>
+            <span class="pill">#Solana</span>
+            <span class="pill">#Deflationary</span>
+            <span class="pill">#Crypto</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="roadmap">
+      <h3>Roadmap</h3>
+      <div class="grid cols-2">
+        <div>
+          <h4>Phase 1 – Prep</h4>
+          <p class="muted">Branding, socials, testnet token, finalize tokenomics.</p>
+        </div>
+        <div>
+          <h4>Phase 2 – Launch</h4>
+          <p class="muted">Mainnet deploy, LP on Raydium/Orca, airdrop, first meme event.</p>
+        </div>
+        <div>
+          <h4>Phase 3 – Grow</h4>
+          <p class="muted">Influencer collabs, weekly challenges, Burn #1, DAO Discord.</p>
+        </div>
+        <div>
+          <h4>Phase 4 – Utility</h4>
+          <p class="muted">Light governance votes, staking/NFT integration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="buy">
+      <h3>How to Buy</h3>
+      <ol>
+        <li>Install <b>Phantom</b> wallet & fund with a little <b>SOL</b>.</li>
+        <li>Open <b>Raydium</b> or <b>Orca</b>, select pair <span class="mono">IGWT / SOL</span>.</li>
+        <li>Paste the <b>mint address</b> from above and swap.</li>
+      </ol>
+      <p class="muted">After deployment, add links to the live pool pages here.</p>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> IGWT. Community‑driven meme token. This site is for fun & community – not financial advice.</div>
+    </footer>
+  </div>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
