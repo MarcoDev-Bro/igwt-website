@@ -56,9 +56,10 @@
     .kpi .item{background:#121525;border:1px solid #242a41;border-radius:14px;padding:14px}
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
     .muted{color:var(--muted)}
-    footer{opacity:.7;font-size:12px;padding:26px 0}
+    footer{opacity:.7;font-size:12px;padding:26px 0;text-align:center}
     .pill{display:inline-block;padding:2px 8px;border-radius:999px;border:1px solid #2a3146;background:#121524;font-size:12px}
     .copy{display:inline-flex;gap:8px;align-items:center}
+    .footer-links{margin-top:8px}
   </style>
   <script>
     function copyMint() {
@@ -68,19 +69,6 @@
       const prev = btn.textContent; btn.textContent = 'Copied! ✅';
       setTimeout(()=>btn.textContent=prev, 1400);
     }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "IGWT – In God We Trust",
-    "url": "https://YOUR-USERNAME.github.io/igwt-website/",
-    "logo": "IGWT.png",
-    "sameAs": [
-      "https://twitter.com/igwtcoin",
-      "https://discord.gg/igwt"
-    ]
-  }
   </script>
 </head>
 <body>
@@ -206,6 +194,9 @@
 
     <footer>
       <div>© <span id="year"></span> IGWT. Community-driven meme token. This site is for fun & community – not financial advice.</div>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutzerklärung</a>
+      </div>
     </footer>
   </div>
   <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
